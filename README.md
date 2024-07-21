@@ -19,23 +19,35 @@ If it works, your avatar should now be reset to its default pose.
 
 ## Installation
 
-There are two methods, pick **only one**:
+There are three methods, pick **only one**:
 
-### UnityPackage
+### VCC
 
-Install the unitypackage the usual way, from the menu bar in Unity, going
-to `Assets` then `Import Package` then `Custom Package...` and selecting the
-file.
+Go to my [VPM Repository](https://sophiebluevr.github.io/vpm/) and simply click
+`Add to VCC` next to the ArmatureReset package!
 
 ### VPM
 
 You can also use [VRChat's VPM tool](https://vcc.docs.vrchat.com/vpm/cli/)!
-First add my [VPM Repository](https://github.com/SophieBlueVR/vpm-repos), and
-then you can simply go to your project directory and type:
+First add my [VPM Repository](https://sophiebluevr.github.io/vpm/index.json)
+
+```
+vpm add repo https://sophiebluevr.github.io/vpm/index.json
+```
+
+Then you can simply go to your project directory and type:
 
 ```
 vpm add package io.github.sophiebluevr.armaturereset
 ```
+
+### UnityPackage
+
+While using VCC or VPM is the preferred method, you can also download the
+unitypackage from the **releases** section in this repository (on the right over
+there --> ) and then install the unitypackage the usual way, from the menu bar
+in Unity, going to `Assets` then `Import Package` then `Custom Package...` and
+selecting the file.
 
 ## License
 
