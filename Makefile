@@ -36,3 +36,8 @@ clean:
 	rm -f $(TARGET)
 	rm -rf .tmp
 .PHONY: clean
+
+
+deploy-nas: $(TARGET)
+	cp $(TARGET) /nas/work/vr/downloads/models/sophie/
+.PHONY: deploy-nas

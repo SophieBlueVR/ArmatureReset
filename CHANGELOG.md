@@ -1,6 +1,12 @@
 Changelog
 =========
 
+v0.2.0
+------
+
+* Removed VRChat specifics so this can work with any armature-within-prefab
+  situation, such as ChilloutVR.
+
 v0.1.2
 ------
 

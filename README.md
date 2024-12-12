@@ -13,7 +13,7 @@ stuck in "bike pose" after working on animations.
 **Save your scene and make a backup just in case!**
 
 Open `Tools` > `SophieBlue` > `ArmatureReset` from the menu bar.  In the
-window that comes up, drag in your avatar and then simply click `Reset!`
+window that comes up, drag in your armature and then simply click `Reset!`
 
 If it works, your avatar should now be reset to its default pose.
 
@@ -21,7 +21,7 @@ If it works, your avatar should now be reset to its default pose.
 
 There are three methods, pick **only one**:
 
-### VCC
+### VCC (VRChat only)
 
 Go to my [VPM Repository](https://sophiebluevr.github.io/vpm/) and simply click
 `Add to VCC` next to the ArmatureReset package!
@@ -43,11 +43,11 @@ vpm add package io.github.sophiebluevr.armaturereset
 
 ### UnityPackage
 
-While using VCC or VPM is the preferred method, you can also download the
-unitypackage from the **releases** section in this repository (on the right over
-there --> ) and then install the unitypackage the usual way, from the menu bar
-in Unity, going to `Assets` then `Import Package` then `Custom Package...` and
-selecting the file.
+While using VCC or VPM is the preferred method for VRChat, you can also download
+the unitypackage from the **releases** section in this repository (on the right
+over there --> ) and then install the unitypackage the usual way, from the menu
+bar in Unity, going to `Assets` then `Import Package` then `Custom Package...`
+and selecting the file.
 
 ## License
 

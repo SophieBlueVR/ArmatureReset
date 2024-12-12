@@ -4,15 +4,13 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
-using VRC.SDK3.Avatars.Components;
-using VRC.SDK3.Avatars.ScriptableObjects;
 
 
 namespace SophieBlue.ArmatureReset.Editor {
     public class ArmatureResetWindow : EditorWindow
     {
         private Vector2 scroll;
-        private VRCAvatarDescriptor _avatar;
+        private Transform _armature;
 
 
         [MenuItem ("Tools/SophieBlue/Armature Reset")]
@@ -37,8 +35,8 @@ namespace SophieBlue.ArmatureReset.Editor {
         }
 
         private void MainOptions() {
-            _avatar = EditorGUILayout.ObjectField(
-                "Avatar", _avatar, typeof(VRCAvatarDescriptor), true) as VRCAvatarDescriptor;
+            _armature = EditorGUILayout.ObjectField(
+                "Armature", _armature, typeof(Transform), true) as Transform;
         }
 
         void OnGUI() {
@@ -56,16 +54,16 @@ namespace SophieBlue.ArmatureReset.Editor {
 
         private void Apply() {
 
-            if (! PrefabUtility.IsOutermostPrefabInstanceRoot(_avatar.gameObject)) {
-                Debug.LogError("Avatar is not a prefab, can't reset it!");
+            if (! PrefabUtility.IsOutermostPrefabInstanceRoot(_armature.parent.gameObject)) {
+                Debug.LogError("Armature is not a in prefab, can't reset it!");
                 return;
             }
 
             // find the armature
-            Transform armature = _avatar.transform.Find("Armature");
+            //Transform armature = _avatar.transform.Find("Armature");
 
             // find the bones and map them to names
-            List<Transform> boneList = new List<Transform>(armature.GetComponentsInChildren<Transform>());
+            List<Transform> boneList = new List<Transform>(_armature.GetComponentsInChildren<Transform>());
             Dictionary<string, Transform> boneMap = new Dictionary<string, Transform>();
 
             boneList.ForEach(delegate(Transform bone) {
@@ -73,7 +71,7 @@ namespace SophieBlue.ArmatureReset.Editor {
             });
 
             // find the prefab overrides
-            List<ObjectOverride> overrides = PrefabUtility.GetObjectOverrides(_avatar.gameObject, false);
+            List<ObjectOverride> overrides = PrefabUtility.GetObjectOverrides(_armature.gameObject, false);
             overrides.ForEach(delegate(ObjectOverride o) {
                 if (boneMap.ContainsKey(o.instanceObject.name)) {
                     Debug.Log("resetting transform " + o.instanceObject.name);
